@@ -17,7 +17,7 @@ def set_table_dtypes(df: pl.DataFrame) -> pl.DataFrame:
         if col[-1] in ("P", "A"):
             #columns ending with P indicate the days, with A indicate the amount
             df = df.with_columns(pl.col(col).cast(pl.Float64).alias(col))
-            ##这一行就是把p和a的列，的datatype改成float，然后创建新的dataframe
+            ##changes the datatype of columns p and a to float, then creates a new DataFrame  
     return df
 
 def convert_strings(df: pd.DataFrame) -> pd.DataFrame:
@@ -25,11 +25,11 @@ def convert_strings(df: pd.DataFrame) -> pd.DataFrame:
     for col in df.columns:
         if df[col].dtype.name in ['object', 'string']:
             df[col] = df[col].astype("string").astype('category')
-            ##变成categorical的variable后，想要得知有哪些unique的categories
+            ##after converting them into categorical variables,find unique categories
             current_categories = df[col].cat.categories
-            ##把不能分类的编入到unknown这一类里面
+            ## Group values that cannot be categorized into an 'unknown' category  
             new_categories = current_categories.to_list() + ["Unknown"]
-            #加入unknown这一个category到原来的这一列
+            #Add the 'unknown' category back into the original column
             new_dtype = pd.CategoricalDtype(categories=new_categories, ordered=True)
             df[col] = df[col].astype(new_dtype)
     return df
@@ -74,7 +74,7 @@ train_person_1.select(pl.col("incometype_1044T").value_counts())
 train_person_1_feats_1 = train_person_1.group_by("case_id").agg(
     pl.col("mainoccupationinc_384A").max().alias("mainoccupationinc_384A_max"),
     (pl.col("incometype_1044T") == "SELFEMPLOYED").max().alias("mainoccupationinc_384A_any_selfemployed")
-) ##two variables: amount of income, type of income 显示每个caseid下最高的income，然后几条记录中如果有自雇的，就返回true
+) ##two variables: amount of income, type of income / Show the highest income for each caseid, and return true if any of the records indicate self-employment.
 
 type(train_person_1_feats_1)
 print(train_person_1_feats_1)
