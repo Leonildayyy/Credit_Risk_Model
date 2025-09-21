@@ -6,32 +6,25 @@ The goal of the project is to build a **Probability of Default (PD) model** for 
 
 ## 🔎 Workflow  
 
-1. **Data Preprocessing**  
-   - Handle missing values  
-   - Encode categorical variables  
-   - Normalize and scale numerical variables  
-   - Split into training and testing sets  
+### Data Preprocessing (`Data_Processing.ipynb`)  
+- Load raw credit risk dataset  
+- Handle missing values  
+- Encode categorical variables (dummy/one-hot encoding)  
+- Clean and prepare the dataset for modeling  
 
-2. **Modeling**  
-   - Logistic Regression as the baseline model  
-   - Additional classifiers for comparison (e.g., Decision Tree, Random Forest)  
-   - Hyperparameter tuning  
+### Modeling (`PD_Model.ipynb`)  
+- Logistic Regression as the Probability of Default (PD) model  
+- Train/test split for evaluation  
+- Model training and probability prediction  
 
-3. **Model Validation**  
-   - Confusion Matrix, Accuracy, Precision, Recall, F1-score  
-   - ROC Curve & AUC  
-   - Cross-validation for stability  
-
-4. **Model Maintenance**  
-   - Monitoring performance over time  
-   - Handling data drift  
-   - Updating the model with new data  
+### Validation (`PD_Model.ipynb`)  
+- Confusion Matrix, Accuracy, Precision, Recall, F1-score  
+- ROC Curve & AUC  
+- Cross-validation for model robustness  
 
 ---
 
-## 📊 Key Learnings  
-
-- End-to-end credit risk modeling workflow  
-- Importance of feature preprocessing for categorical and numerical data  
-- Comparing multiple machine learning models for classification  
-- Building a maintainable pipeline for long-term model use  
+## 📊 Key Points  
+- The **final PD model** is built with **Logistic Regression**.  
+- The focus is on a clear **end-to-end pipeline**: from preprocessing → modeling → validation.  
+- **No feature scaling/normalization** is applied, as the model is primarily built on encoded categorical and numerical inputs directly.  
