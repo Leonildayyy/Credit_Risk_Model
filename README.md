@@ -1,21 +1,41 @@
-Home Credit Credit Risk Model
+🏦 Credit Risk Modeling
+This repository contains credit risk modeling projects that aim to assess the probability of loan default. It includes two different approaches:
+Home Credit Default Prediction (machine learning pipeline using LightGBM)
+Probability of Default (PD) Model (logistic regression with validation pipeline)
+Together, they demonstrate both a modern ML-driven approach and a traditional, interpretable statistical approach to credit risk.
 
-This project implements a machine learning pipeline to predict credit risk using Home Credit loan data. The goal is to classify loan applications based on the likelihood of default.
+## 🔎 Project Overview  
 
-Overview
+### 1. Home Credit Risk Model (ML Pipeline)  
+- **Data**: Customer-level features including personal income, housing details, and credit history  
+- **Model**: LightGBM binary classifier  
+- **Feature Engineering**: Aggregation of historical records, categorical encoding, handling of missing values  
 
-Data: Includes personal income, housing details, and credit history.
-Model: LightGBM is used to train a binary classifier.
-Feature Engineering: Aggregation of historical records, typecasting, and handling of categorical variables.
+**Business Metrics**:  
+- **Default Rate Reduction**: Identify risky applicants to reduce losses from defaults  
+- **Approval Efficiency**: Automate credit risk scoring for faster decisions  
+- **Profit Impact**: Improve loan portfolio health and profitability  
 
-Business Metrics
+**Insights**:  
+- **Income Type**: Self-employed applicants show higher default risk  
+- **Credit History**: Longer overdue payments strongly correlate with defaults  
+- **Housing Stability**: Home ownership is associated with lower risk  
 
-Default Rate Reduction: By accurately predicting risky applicants, the model helps minimize the default rate, which can lead to significant cost savings.
-Approval Efficiency: Faster, more accurate loan approvals by automating the risk assessment process.
-Profit Impact: Improved loan portfolio health and increased profitability by lending to low-risk applicants.
+---
 
-Insights
+### 2. Credit Scoring Model (LendingClub Loan Data)  
+- **Dataset**: LendingClub loan data, including borrower demographics, financial attributes, loan details, and repayment outcomes.
+  https://www.kaggle.com/datasets/adarshsng/lending-club-loan-data-csv
+- **Preprocessing**:  
+  - Handle missing values  
+  - Encode categorical variables into dummy variables  
+  - Clean and prepare the dataset for modeling  
 
-Income Type as a Key Predictor: Self-employed individuals tend to have a higher risk, which can be factored into more stringent lending criteria.
-Credit History Significance: Longer overdue payments (e.g., pmts_dpdvalue_108P_over31) are strongly correlated with higher default risk.
-Housing Stability: Applicants with more stable housing conditions (e.g., home ownership) are less likely to default.
+- **Model**: Logistic Regression (industry-standard approach for credit scoring / PD estimation)  
+  - Outputs probability of default (PD) for each loan application  
+  - Provides interpretable coefficients to understand the impact of borrower features  
+
+- **Validation**:  
+  - Confusion Matrix, Accuracy, Precision, Recall, F1-score  
+  - ROC Curve & AUC to evaluate discriminatory power  
+  - Cross-validation to ensure model robustness and generalization  
