@@ -8,7 +8,8 @@ Data: Includes personal income, housing details, and credit history. Model: Ligh
 
 Business Metrics
 
-Default Rate Reduction: By accurately predicting risky applicants, the model helps minimize the default rate, which can lead to significant cost savings. Approval Efficiency: Faster, more accurate loan approvals by automating the risk assessment process. Profit Impact: Improved loan portfolio health and increased profitability by lending to low-risk applicants.
+Default Rate Reduction: By accurately predicting risky applicants, the model helps minimize the default rate, which can lead to significant cost savings.
+Approval Efficiency: Faster, more accurate loan approvals by automating the risk assessment process. Profit Impact: Improved loan portfolio health and increased profitability by lending to low-risk applicants.
 
 Insights
 
